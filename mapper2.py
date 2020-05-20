@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import re 
 
 # get all lines from stdin
 for line in sys.stdin:
@@ -8,6 +9,9 @@ for line in sys.stdin:
 
     # convert line to lowercase
     line = line.lower()
+
+    # remove punctuation
+    line = re.sub(r'[^\w\s]','',line)
 
     # split the line into words; splits on any whitespace
     words = line.split()
